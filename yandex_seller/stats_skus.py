@@ -33,6 +33,28 @@ class StatsSkusRequest:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
+class GetStatsSkusResponseWarehouseTariff:
+    type: str
+    percent: float
+    amount: float
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclass
+class GetStatsSkusResponseWarehouseStock:
+    type: str
+    count: int
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclass
+class GetStatsSkusResponseWarehouse:
+    id: int
+    name: str
+    stocks: list[GetStatsSkusResponseWarehouseStock]
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclass
 class GetStatsSkusResponseSkuHiding:
     type: str
     code: str
@@ -60,7 +82,8 @@ class GetStatsSkusResponseSku:
     categoryName: str
     weightDimensions: GetStatsSkusResponseSkuWeightDimensions
     hidings: Optional[list[GetStatsSkusResponseSkuHiding]] = None
-    # TODO: describe the remaining fields
+    warehouses: Optional[list[GetStatsSkusResponseWarehouse]] = None
+    tariffs:  Optional[list[GetStatsSkusResponseWarehouseTariff]] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
