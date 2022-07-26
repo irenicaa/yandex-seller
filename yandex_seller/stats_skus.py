@@ -7,18 +7,6 @@ from marshmallow import fields
 
 from . import credentials, error_response, request_api
 
-
-def parse_datetime(value):
-    if value is None:
-        return None
-    elif isinstance(value, str):
-        return datetime.datetime.fromisoformat(value)
-    elif isinstance(value, datetime.datetime):
-        return value
-    else:
-        raise RuntimeError("unsopported time for a datetime field")
-
-
 # Request
 
 
