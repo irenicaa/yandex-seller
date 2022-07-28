@@ -3,24 +3,26 @@ import os
 
 import dotenv
 
-from . import credentials, request_api, stats_skus
+from . import credentials, orders, request_api
 
 if __name__ == "__main__":
     dotenv.load_dotenv()
     try:
-        data = stats_skus.StatsSkusRequest(
-            shopSkus=["0008"],
+        data = orders.OrdersRequest(
+            campaignId=os.getenv('COMPANY_NUMBER'),
+            status="PROCESSING",
+            substatus="STARTED",
+            page=1,
         )
-        print(data.to_json())
 
         ya_credentials = credentials.Credentials(os.getenv('CLIENT_ID'), os.getenv('CLIENT_TOKEN'))
 
-        stats = stats_skus.get_stats_skus(
+        orders_data = orders.get_orders(
             ya_credentials,
             os.getenv('COMPANY_NUMBER'),
             data,
         )
-        print(stats)
+        print(orders_data)
     except request_api.HTTPError as error:
         print('ERROR', error)
         print('ERROR response_data', error.response_data)
