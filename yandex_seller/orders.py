@@ -188,7 +188,7 @@ class GetOrdersResponseWrapper:
     pager: Optional[GetOrdersResponsePager] = None
 
 
-def get_orders(
+def get_campaigns_orders(
     credentials: credentials.Credentials,
     campaign_id: str,
     data: OrdersRequest,
@@ -207,3 +207,18 @@ def get_orders(
         None,
         response_cls=GetOrdersResponseWrapper,
     )
+
+
+def get_campaigns_orders_iterative(
+    credentials: credentials.Credentials,
+    campaign_id: str,
+    data: OrdersRequest,
+) -> Generator[GetOrdersResponse, None, None]:
+    while True:
+        returns = get_campaigns_orders(credentials, campaign_id, data)
+        if returns.orders == []:
+            break
+
+        yield returns
+
+        data.page += 1
