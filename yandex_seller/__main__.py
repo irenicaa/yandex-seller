@@ -3,23 +3,19 @@ import os
 
 import dotenv
 
-from . import credentials, first_mile_shipments, request_api
+from . import campaigns_first_mile_shipments, credentials, request_api
 
 if __name__ == "__main__":
     dotenv.load_dotenv()
     try:
-        data = first_mile_shipments.FirstMileShipmentsRequest(
-            dateFrom="11-08-2022",
-            dateTo="11-08-2022",
-        )
         ya_credentials = credentials.Credentials(os.getenv('CLIENT_ID'), os.getenv('CLIENT_TOKEN'))
 
-        act_id = first_mile_shipments.get_first_mile_data(
+        act_status = campaigns_first_mile_shipments.get_reception_transfer_act(
             ya_credentials,
             os.getenv('COMPANY_NUMBER'),
-            data,
+            os.getenv('SHIPMENT_ID'),
         )
-        print(act_id)
+        print(act_status)
     except request_api.HTTPError as error:
         print('ERROR', error)
         print('ERROR response_data', error.response_data)
