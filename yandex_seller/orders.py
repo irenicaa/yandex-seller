@@ -108,14 +108,14 @@ class GetOrdersResponseDeliveryShipmentTrack:
 class GetOrdersResponseDeliveryShipment:
     id: int
     shipmentDate: str
-    height: int
-    depth: int
-    width: int
-    weight: int
-    status: str
-    tracks: list[GetOrdersResponseDeliveryShipmentTrack]
-    items: list[GetOrdersResponseDeliveryShipmentItem]
-    boxes: list[GetOrdersResponseDeliveryShipmentBox]
+    height: Optional[int] = None
+    depth: Optional[int] = None
+    width: Optional[int] = None
+    weight: Optional[int] = None
+    status: Optional[str] = None
+    tracks: Optional[list[GetOrdersResponseDeliveryShipmentTrack]] = None
+    items: Optional[list[GetOrdersResponseDeliveryShipmentItem]] = None
+    boxes: Optional[list[GetOrdersResponseDeliveryShipmentBox]] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
