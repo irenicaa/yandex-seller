@@ -58,56 +58,56 @@ class GetOrdersResponsePager:
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseItemDetail:
-    itemStatus: str
-    itemCount: int
-    updateDate: str
+    itemStatus: Optional[str] = None
+    itemCount: Optional[int] = None
+    updateDate: Optional[str] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseItem:
-    id: int
-    feedId: int
-    offerId: str
-    feedCategoryId: str
-    offerName: str
-    partnerWarehouseId: int
-    count: int
-    price: int
-    buyerPrice: int
-    buyerPriceBeforeDiscount: int
-    vat: str
-    subsidy: int
-    feeUE: int
-    shopSku: str
+    id: Optional[int] = None
+    feedId: Optional[int] = None
+    offerId: Optional[str] = None
+    feedCategoryId: Optional[str] = None
+    offerName: Optional[str] = None
+    partnerWarehouseId: Optional[int] = None
+    count: Optional[int] = None
+    price: Optional[int] = None
+    buyerPrice: Optional[int] = None
+    buyerPriceBeforeDiscount: Optional[int] = None
+    vat: Optional[str] = None
+    subsidy: Optional[int] = None
+    feeUE: Optional[int] = None
+    shopSku: Optional[str] = None
     details: Optional[list[GetOrdersResponseItemDetail]] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryShipmentBox:
-    id: int
-    fulfilmentId: str
+    id: Optional[int] = None
+    fulfilmentId: Optional[str] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryShipmentItem:
-    id: int
-    count: int
+    id: Optional[int] = None
+    count: Optional[int] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryShipmentTrack:
-    trackCode: str
-    deliveryServiceId: int
+    trackCode: Optional[str] = None
+    deliveryServiceId: Optional[int] = None
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryShipment:
-    id: int
-    shipmentDate: str
+    id: Optional[int] = None
+    shipmentDate: Optional[str] = None
     height: Optional[int] = None
     depth: Optional[int] = None
     width: Optional[int] = None
@@ -121,63 +121,63 @@ class GetOrdersResponseDeliveryShipment:
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryRegionParentParent:
-    id: int
-    name: str
-    type: str
+    id: Optional[int] = None
+    name: Optional[str] = None
+    type: Optional[str] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryRegionParent:
-    id: int
-    name: str
-    type: str
-    parent: GetOrdersResponseDeliveryRegionParentParent
+    id: Optional[int] = None
+    name: Optional[str] = None
+    type: Optional[str] = None
+    parent: Optional[GetOrdersResponseDeliveryRegionParentParent] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDeliveryRegion:
-    id: int
-    name: str
-    type: str
-    parent: GetOrdersResponseDeliveryRegionParent
+    id: Optional[int] = None
+    name: Optional[str] = None
+    type: Optional[str] = None
+    parent: Optional[GetOrdersResponseDeliveryRegionParent] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponseDelivery:
-    type: str
-    serviceName: str
-    deliveryPartnerType: str
-    region: GetOrdersResponseDeliveryRegion
-    shipments: list[GetOrdersResponseDeliveryShipment]
+    type: Optional[str] = None
+    serviceName: Optional[str] = None
+    deliveryPartnerType: Optional[str] = None
+    region: Optional[GetOrdersResponseDeliveryRegion] = None
+    shipments: Optional[list[GetOrdersResponseDeliveryShipment]] = None
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclass
 class GetOrdersResponse:
-    id: int
-    status: str
-    substatus: str
-    creationDate: str
-    currency: str
-    itemsTotal: int
-    total: int
-    buyerTotal: int
-    buyerItemsTotal: int
-    buyerTotalBeforeDiscount: int
-    buyerItemsTotalBeforeDiscount: int
-    subsidyTotal: float
-    deliveryTotal: int
-    totalWithSubsidy: float
-    paymentType: str
-    paymentMethod: str
-    feeUE: int
-    fake: bool
-    delivery: GetOrdersResponseDelivery
-    taxSystem:str
-    items: list[GetOrdersResponseItem]
+    id: Optional[int] = None
+    status: Optional[str] = None
+    substatus: Optional[str] = None
+    creationDate: Optional[str] = None
+    currency: Optional[str] = None
+    itemsTotal: Optional[int] = None
+    total: Optional[int] = None
+    buyerTotal: Optional[int] = None
+    buyerItemsTotal: Optional[int] = None
+    buyerTotalBeforeDiscount: Optional[int] = None
+    buyerItemsTotalBeforeDiscount: Optional[int] = None
+    subsidyTotal: Optional[float] = None
+    deliveryTotal: Optional[int] = None
+    totalWithSubsidy: Optional[float] = None
+    paymentType: Optional[str] = None
+    paymentMethod: Optional[str] = None
+    feeUE: Optional[int] = None
+    fake: Optional[bool] = None
+    delivery: Optional[GetOrdersResponseDelivery] = None
+    taxSystem: Optional[str] = None
+    items: Optional[list[GetOrdersResponseItem]] = None
     notes: Optional[str] = None
 
 
